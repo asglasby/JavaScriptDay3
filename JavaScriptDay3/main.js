@@ -1,7 +1,7 @@
-﻿var dogs = [];
+﻿var dogsArray = [];
 var forebaseUrl = "http://ccamlessons.firebaseio.com/Dogs.json";
 
-var Dog = function (name, breed, color) {
+var DogConstructor = function (name, breed, color) {
     this.name = name;
     this.breed = breed;
     this.color = color;
@@ -13,6 +13,7 @@ var postAjax = function (dog) {
     request.onload = function () {
         if (this.status >= 200 && this.status < 400) {
             console.log("success");
+            dogsArray.push(dog);
         } else {
             console.error(this.response);
         }
